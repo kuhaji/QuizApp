@@ -1,0 +1,93 @@
+  {
+    "questions": [
+      {
+        "question": "Auto",
+        "answer1": "Car",
+        "answer2": "Bicycle",
+        "answer3": "Tractor",
+        "answer4": "Truck",
+        "correct": "Car"
+      },
+      {
+        "question": "Pyörä",
+        "answer1": "Car",
+        "answer2": "Bicycle",
+        "answer3": "Truck",
+        "answer4": "Moped",
+        "correct": "Bicycle"
+      },
+      {
+        "question": "Mopo",
+        "answer1": "Car",
+        "answer2": "Bicycle",
+        "answer3": "Moped",
+        "answer4": "Truck",
+        "correct": "Moped"
+      },
+      {
+        "question": "Kuorma-auto",
+        "answer1": "Car",
+        "answer2": "Bicycle",
+        "answer3": "Moped",
+        "answer4": "Truck",
+        "correct": "Truck"
+      },
+      {
+        "question": "Bussi",
+        "answer1": "Bus",
+        "answer2": "Bicycle",
+        "answer3": "Moped",
+        "answer4": "Truck",
+        "correct": "Bus"
+      },
+      {
+        "question": "Auto",
+        "answer1": "Car",
+        "answer2": "Bicycle",
+        "answer3": "Tractor",
+        "answer4": "Truck",
+        "correct": "Car"
+      },
+      {
+        "question": "Auto",
+        "answer1": "Car",
+        "answer2": "Bicycle",
+        "answer3": "Tractor",
+        "answer4": "Truck",
+        "correct": "Car"
+      },
+      {
+        "question": "Auto",
+        "answer1": "Car",
+        "answer2": "Bicycle",
+        "answer3": "Tractor",
+        "answer4": "Truck",
+        "correct": "Car"
+      },
+      {
+        "question": "Auto",
+        "answer1": "Car",
+        "answer2": "Bicycle",
+        "answer3": "Tractor",
+        "answer4": "Truck",
+        "correct": "Car"
+      },
+      {
+        "question": "Auto",
+        "answer1": "Car",
+        "answer2": "Bicycle",
+        "answer3": "Tractor",
+        "answer4": "Truck",
+        "correct": "Car"
+      },
+      {
+        "question": "Auto",
+        "answer1": "Car",
+        "answer2": "Bicycle",
+        "answer3": "Tractor",
+        "answer4": "Truck",
+        "correct": "Car"
+      }
+    ]
+  }
+
