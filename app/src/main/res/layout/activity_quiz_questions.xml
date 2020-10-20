@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:textColor="#363A43"
+            android:textColor="#FFFFFF"
             android:textSize="22sp"
             android:text="Question here"/>
         
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="15dp"
-                android:textColorHint="#7A8089"
+                android:textColorHint="#FFFFFF"
                 android:textSize="14sp"
                 android:text="0/10"/>
 

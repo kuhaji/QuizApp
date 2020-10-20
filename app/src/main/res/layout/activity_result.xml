@@ -13,7 +13,7 @@
         android:id="@+id/tv_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="100dp"
         android:text="Result"
         android:textColor="@android:color/white"
         android:textSize="25sp"
@@ -24,16 +24,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="image"
+        android:src="@drawable/ic_trophy"
          />
 
     <TextView
         android:id="@+id/tv_congratulations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Hey, Congratulations!"
+        android:layout_marginTop="30dp"
+        android:text="Congratulations!"
         android:textColor="@android:color/white"
-        android:textSize="25sp"
+        android:textSize="22sp"
         android:textStyle="bold"/>
 
     <TextView
@@ -60,9 +61,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@android:color/white"
+        android:background="@color/colorPrimary"
         android:text="FINISH"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold" />
 </LinearLayout>
