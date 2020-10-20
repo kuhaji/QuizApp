@@ -10,7 +10,10 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_quiz_questions.*
+import okhttp3.*
+import java.io.IOException
 
 class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -29,9 +32,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
         mUserName = intent.getStringExtra(Constants.USER_NAME)
 
-        mQuestionsList = Constants.getQuestions()
-
-        setQuestion()
+        fetchJson()
 
         tv_option_one.setOnClickListener(this)
         tv_option_two.setOnClickListener(this)
@@ -41,7 +42,44 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    //
+    fun fetchJson() {
+        println("Attempting to fetch JSON")
+
+        val url = "https://users.metropolia.fi/~juhavali/Json/questions.json"
+
+        val request = Request.Builder().url(url).build()
+
+        val client = OkHttpClient()
+        client.newCall(request).enqueue(object: Callback {
+
+            override fun onResponse(call: Call, response: Response) {
+                val body = response?.body?.string()
+
+                println(body)
+
+                val gson = GsonBuilder().create()
+
+                val homeFeed = gson.fromJson(body, Questions::class.java)
+
+
+                println("HomeFeed " + homeFeed.questions)
+
+                mQuestionsList = homeFeed.questions
+
+                println("mQuestionsList " + mQuestionsList)
+
+                setQuestion()
+            }
+
+            override fun onFailure(call: Call, e: IOException) {
+                println("Failed to execute request")
+            }
+        })
+    }
+
+    class Questions(val questions: ArrayList<Question>)
+
+
     private fun setQuestion() {
 
         val question = mQuestionsList!![mCurrentPosition - 1]
@@ -59,11 +97,14 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         tv_progress.text = "$mCurrentPosition" + "/" + progressBar.max
 
         //fetching question strings
-        tv_question.text = question!!.question
-        tv_option_one.text = question.optionOne
-        tv_option_two.text = question.optionTwo
-        tv_option_three.text = question.optionThree
-        tv_option_four.text = question.optionFour
+
+        runOnUiThread {
+            tv_question.text = question!!.question
+            tv_option_one.text = question.optionOne
+            tv_option_two.text = question.optionTwo
+            tv_option_three.text = question.optionThree
+            tv_option_four.text = question.optionFour
+        }
     }
 
     //making function which assign default layout for buttons
@@ -103,19 +144,19 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btn_submit ->{
                 if (mSelectedOptionPosition == 0) {
-                        mCurrentPosition++
+                    mCurrentPosition++
 
                     when {
                         mCurrentPosition <= mQuestionsList!!.size ->{
                             setQuestion()
                         }else -> {
-                            val intent = Intent(this, ResultActivity::class.java)
-                            intent.putExtra(Constants.USER_NAME, mUserName)
-                            intent.putExtra(Constants.CORRECT_ANSWERS, mCorrectAnswers)
-                            intent.putExtra(Constants.TOTAL_QUESTIONS, mQuestionsList!!.size)
-                            startActivity(intent)
-                            finish()
-                        }
+                        val intent = Intent(this, ResultActivity::class.java)
+                        intent.putExtra(Constants.USER_NAME, mUserName)
+                        intent.putExtra(Constants.CORRECT_ANSWERS, mCorrectAnswers)
+                        intent.putExtra(Constants.TOTAL_QUESTIONS, mQuestionsList!!.size)
+                        startActivity(intent)
+                        finish()
+                    }
                     }
                 }else {
                     val question = mQuestionsList?.get(mCurrentPosition - 1)
