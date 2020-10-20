@@ -1,2 +1,2 @@
 "# QuizApp" 
-Kotlin/Android Studio/Json parse
+Kotlin/Android Studio/Json
