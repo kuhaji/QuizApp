@@ -14,6 +14,10 @@ import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_quiz_questions.*
 import okhttp3.*
 import java.io.IOException
+import java.util.*
+import kotlin.collections.ArrayList
+
+//@author Juha Välimäki 1901928
 
 class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -32,6 +36,8 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
         mUserName = intent.getStringExtra(Constants.USER_NAME)
 
+
+
         fetchJson()
 
         tv_option_one.setOnClickListener(this)
@@ -40,8 +46,11 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         tv_option_four.setOnClickListener(this)
         btn_submit.setOnClickListener(this)
 
+
+
     }
 
+    //here we fetch data from metropolia domain and set it up to buttons
     fun fetchJson() {
         println("Attempting to fetch JSON")
 
@@ -76,10 +85,10 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
             }
         })
     }
-
+    //questions list
     class Questions(val questions: ArrayList<Question>)
 
-
+    //functions for submit and finish buttons
     private fun setQuestion() {
 
         val question = mQuestionsList!![mCurrentPosition - 1]

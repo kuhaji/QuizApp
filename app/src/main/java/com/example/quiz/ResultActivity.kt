@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_result.*
 
+//@author Juha Välimäki 1901928
+//In this activity this brings total score from the quiz also you can go back to MainActivity
 class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

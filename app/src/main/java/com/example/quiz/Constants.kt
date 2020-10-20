@@ -1,7 +1,8 @@
 package com.example.quiz
 
 
-
+//@author Juha Välimäki 1901928
+//first i made this application from this object but after this i made application fetch data from json
 object Constants {
 
     // START
